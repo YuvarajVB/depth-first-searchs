@@ -1,6 +1,6 @@
 <h1>ExpNo 2 : Implement Depth First Search Traversal of a Graph</h1> 
-<h3>Name: </h3>
-<h3>Register Number:     </h3>
+<h3>Name: YUVARAJ V</h3>
+<h3>Register Number: 212223230252</h3>
 <H3>Aim:</H3>
 <p> To Implement Depth First Search Traversal of a Graph using Python 3.</p>
 <h3>Theory:</h3>
@@ -87,6 +87,43 @@ F H <BR>
 <h3>Sample Output</h3>
 <hr>
 ['0', '1', '2', '3', '4']
+
+## Program 
+```
+from collections import defaultdict
+
+def dfs(graph, start, visited, path):
+    path.append(start)
+    visited[start] = True
+    for neighbour in graph[start]:
+        if not visited[neighbour]:
+            dfs(graph, neighbour, visited, path)
+    return path
+
+graph = defaultdict(list)
+n, e = map(int, input().split())
+for i in range(e):
+    u, v = input().split()
+    graph[u].append(v)
+    graph[v].append(u)
+start = input()
+visited = defaultdict(bool)
+path = []
+traversed_path = dfs(graph, start, visited, path)
+print(traversed_path)
+
+
+```
+
+
+<h4>Output:</h4>
+<h4>1)</h4>
+<img width="940" height="399" alt="image" src="https://github.com/user-attachments/assets/2c9daa32-8737-4020-b3ae-5c85498913cc" />
+<h4>2)</h4>
+<img width="902" height="276" alt="image" src="https://github.com/user-attachments/assets/569f658b-d2db-43d3-b99c-6f94a147de9e" />
+
+
+
 
 <hr>
 <h3>Result:</h3>
